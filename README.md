@@ -58,6 +58,7 @@ Un générateur de mots de passe sécurisé et personnalisable (longueur, utilis
    python password_generator.py --help
    ```
 
+## test
 ---
 
 ## Architecture générale de l’application
