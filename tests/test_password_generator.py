@@ -63,3 +63,24 @@ def generate_password(length, use_digits=True, use_specials=True):
 
     character_pool = get_character_pool(use_digits=use_digits, use_specials=use_specials)
     return ''.join(secrets.choice(character_pool) for _ in range(length))
+
+
+def test_passwords_are_different_on_consecutive_generations():
+    password1 = generate_password(12)
+    password2 = generate_password(12)
+    password3 = generate_password(12)
+    assert password1 != password2
+    assert password2 != password3
+    assert password1 != password3
+
+def test_passwords_are_different_between_sessions():
+    password1 = generate_password(12)
+    password2 = generate_password(12)
+    assert password1 != password2
+
+def test_unique_passwords_in_a_session():
+    generated_passwords = set()
+    for _ in range(1000):
+        password = generate_password(12)
+        assert password not in generated_passwords
+        generated_passwords.add(password)
