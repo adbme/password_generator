@@ -1,3 +1,5 @@
+[![Python application](https://github.com/adbme/password_generator/actions/workflows/python-app.yml/badge.svg)](https://github.com/adbme/password_generator/actions/workflows/python-app.yml)
+
 # Password Generator
 
 ## Description
