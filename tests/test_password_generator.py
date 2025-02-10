@@ -17,9 +17,13 @@ def test_invalid_length():
     with pytest.raises(ValueError):
         generate_password(129) # Trop long
 
+def get_character_pool():
+    """Retourne l'ensemble des caractères utilisables pour le mot de passe."""
+    return string.ascii_letters + string.digits + string.punctuation
+
 def generate_password(length):
-    if length < 4 or length > 128:
+    """Génère un mot de passe sécurisé de la longueur spécifiée."""
+    if not (4 <= length <= 128):
         raise ValueError("La longueur doit être entre 4 et 128 caractères.")
     
-    alphabet = string.ascii_letters + string.digits + string.punctuation
-    return ''.join(secrets.choice(alphabet) for _ in range(length))
+    return ''.join(secrets.choice(get_character_pool()) for _ in range(length))
