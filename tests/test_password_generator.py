@@ -39,13 +39,21 @@ def test_no_special_chars():
     assert not any(c in string.punctuation for c in password)
     
 
-def get_character_pool(use_digits=True, use_specials=True):
+def get_character_pool(include_upper=True, include_lower=True, use_digits=True, use_specials=True):
     """Retourne l'ensemble des caractères utilisables pour le mot de passe."""
-    pool = string.ascii_letters
+    pool = ""
+    if include_upper:
+        pool += string.ascii_uppercase
+    if include_lower:
+        pool += string.ascii_lowercase
     if use_digits:
         pool += string.digits
     if use_specials:
         pool += string.punctuation
+
+    if not pool:
+        raise ValueError("Au moins une catégorie de caractères doit être sélectionnée.")
+
     return pool
 
 def generate_password(length, use_digits=True, use_specials=True):
@@ -53,5 +61,5 @@ def generate_password(length, use_digits=True, use_specials=True):
     if not (4 <= length <= 128):
         raise ValueError("La longueur doit être entre 4 et 128 caractères.")
 
-    character_pool = get_character_pool(use_digits, use_specials)
+    character_pool = get_character_pool(use_digits=use_digits, use_specials=use_specials)
     return ''.join(secrets.choice(character_pool) for _ in range(length))
