@@ -1,5 +1,5 @@
 import pytest
-from password_generator import generate_password
+from src.password_generator import generate_password
 import secrets
 import string
 
