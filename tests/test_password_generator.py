@@ -40,15 +40,15 @@ def test_no_special_chars():
     
 def get_character_pool(include_upper=True, include_lower=True, use_digits=True, use_specials=True):
     """Retourne l'ensemble des caractères utilisables pour le mot de passe."""
-    pool = ""
+    pool = []
     if include_upper:
-        pool += string.ascii_uppercase
+        pool.extend(string.ascii_uppercase)
     if include_lower:
-        pool += string.ascii_lowercase
+        pool.extend(string.ascii_lowercase)
     if use_digits:
-        pool += string.digits
+        pool.extend(string.digits)
     if use_specials:
-        pool += string.punctuation
+        pool.extend(string.punctuation)
 
     if not pool:
         raise ValueError("Au moins une catégorie de caractères doit être sélectionnée.")
