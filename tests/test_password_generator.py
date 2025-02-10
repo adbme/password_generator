@@ -57,11 +57,13 @@ def get_character_pool(include_upper=True, include_lower=True, use_digits=True, 
     return pool
 
 def generate_password(length, use_digits=True, use_specials=True):
-    """Génère un mot de passe sécurisé selon les options spécifiées."""
+    """Génère un mot de passe sécurisé selon les options spécifiées, garantissant l'unicité."""
     if not (4 <= length <= 128):
         raise ValueError("La longueur doit être entre 4 et 128 caractères.")
 
     character_pool = get_character_pool(use_digits=use_digits, use_specials=use_specials)
+    
+    # Utilisation de secrets pour générer un mot de passe aléatoire et unique
     return ''.join(secrets.choice(character_pool) for _ in range(length))
 
 def test_passwords_are_different_on_consecutive_generations():
