@@ -58,7 +58,7 @@ Un générateur de mots de passe sécurisé et personnalisable (longueur, utilis
    python password_generator.py --help
    ```
 
-## test
+
 ---
 
 ## Architecture générale de l’application
@@ -67,7 +67,7 @@ Un générateur de mots de passe sécurisé et personnalisable (longueur, utilis
 - **Langage** : Python 3.x
 - **Bibliothèques** : `random`, `string`, `argparse`
 - **Tests unitaires** : `pytest`
-- **Intégration continue** : GitHub Actions (optionnel)
+- **Intégration continue** : GitHub Actions 
 
 ### Structure du projet
 ```
@@ -82,3 +82,25 @@ password_generator_project/
 ```
 
 ---
+
+## User Story : Génération de mot de passe fort et aléatoire
+
+### En tant qu'utilisateur, je veux pouvoir générer un mot de passe aléatoire afin de garantir la sécurité de mes comptes.
+
+### Critères d'acceptation :
+
+#### 1. Choix de la longueur du mot de passe
+
+#### 2. Inclusion de majuscules, minuscules, chiffres et caractères spéciaux
+
+#### 3. Les mots de passe sont aléatoires et jamais identiques
+
+## Lancer les tests : 
+
+```bash
+pytest tests/test_password_generator.py
+```
+
+## Accès aux logs : 
+
+Vous pouvez y accéder depuis chaque commit en cliquant sur ✅ et ❌ puis details
